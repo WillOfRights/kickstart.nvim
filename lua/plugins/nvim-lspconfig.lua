@@ -109,7 +109,7 @@ return {
         },
       },
       clangd = {
-        cmd = { 'clangd', '--log=verbose' },
+        cmd = { 'clangd', '--log=verbose', '--clang-tidy' },
         init_options = {
           compilationDatabasePath = './build/',
         },
