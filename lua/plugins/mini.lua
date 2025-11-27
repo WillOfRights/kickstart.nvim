@@ -1,5 +1,5 @@
 return { -- See github: many useful small utilities
-  'echasnovski/mini.nvim',
+  'nvim-mini/mini.nvim',
   config = function()
     -- Better Around/Inside textobjects
     --

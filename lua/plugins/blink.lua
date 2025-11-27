@@ -15,9 +15,7 @@ return {
       dependencies = {
         {
           'rafamadriz/friendly-snippets',
-          config = function()
-            require('luasnip.loaders.from_vscode').lazy_load()
-          end,
+          config = function() require('luasnip.loaders.from_vscode').lazy_load() end,
         },
       },
       opts = {},
@@ -63,9 +61,29 @@ return {
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
+      default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+        buffer = {
+          -- Make buffer compeletions appear at the end.
+          score_offset = -100,
+          enabled = function()
+            -- Filetypes for which buffer completions are enabled; add filetypes to extend:
+            local enabled_filetypes = {
+              'markdown',
+              'text',
+            }
+            local filetype = vim.bo.filetype
+            return vim.tbl_contains(enabled_filetypes, filetype)
+          end,
+        },
+        -- On WSL2, blink.cmp may cause the editor to freeze due to a known limitation.
+        -- To address this issue, uncomment the following configuration:
+        -- cmdline = {
+        --   enabled = function()
+        --     return vim.fn.getcmdtype() ~= ':' or not vim.fn.getcmdline():match "^[%%0-9,'<>%-]*!"
+        --   end,
+        -- },
       },
     },
 
