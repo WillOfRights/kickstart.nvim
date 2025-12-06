@@ -8,7 +8,7 @@ return {
         -- (:help typescript-tools)
         vim.keymap.set('n', '<A-o>', '<Cmd>TSToolsOrganizeImports<Cr>', { desc = 'Organize Imports' })
       end,
-      filetypes = { 'typescript', 'javascript' },
+      filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' },
     }
   end,
 }
