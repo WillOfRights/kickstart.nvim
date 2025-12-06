@@ -92,6 +92,7 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- LSP keymaps
 map('n', 'grn', vim.lsp.buf.rename, { desc = '[R]e[n]ame' })
 map('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
+map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float diagnostic message' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
