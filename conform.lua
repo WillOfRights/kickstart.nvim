@@ -5,9 +5,7 @@ return {
   keys = {
     {
       '<leader>gq',
-      function()
-        require('conform').format { async = true }
-      end,
+      function() require('conform').format { async = true } end,
       mode = '',
       desc = 'Format file',
     },

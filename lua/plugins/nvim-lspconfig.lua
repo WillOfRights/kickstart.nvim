@@ -93,12 +93,17 @@ return {
           compilationDatabasePath = './build/',
         },
       },
+      xmlformatter = {
+        filetypes = { 'xml' },
+      },
     }
 
     -- Mason setup handled here (:Mason + g? for help)
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
+      'html-lsp',
+      'markdown-oxide',
       -- clangd snapshot build to fix CUDA issue
       { 'clangd', version = 'snapshot_20251109' },
     })
