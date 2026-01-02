@@ -1,5 +1,8 @@
 return {
   'mfussenegger/nvim-jdtls',
+  dependencies = {
+    'mfussenegger/nvim-dap',
+  },
   ft = { 'java' },
   config = function()
     vim.api.nvim_create_autocmd({ 'FileType' }, {
@@ -55,7 +58,7 @@ return {
           --
           -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
           init_options = {
-            bundles = {},
+            bundles = { vim.fn.glob('~/CodingUtilLocal/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.2.jar', 1) },
           },
         }
 
@@ -64,16 +67,10 @@ return {
         -- Keymaps
         vim.keymap.set('n', '<A-o>', jdtls.organize_imports, { desc = 'Organize Imports' })
         vim.keymap.set('n', 'crv', jdtls.extract_variable, { desc = 'Extract Variable' })
-        vim.keymap.set('v', 'crv', function()
-          jdtls.extract_variable(true)
-        end, { desc = 'Extract Variable (visual)' })
+        vim.keymap.set('v', 'crv', function() jdtls.extract_variable(true) end, { desc = 'Extract Variable (visual)' })
         vim.keymap.set('n', 'crc', jdtls.extract_constant, { desc = 'Extract Constant' })
-        vim.keymap.set('v', 'crc', function()
-          jdtls.extract_constant(true)
-        end, { desc = 'Extract Constant (visual)' })
-        vim.keymap.set('v', 'crm', function()
-          jdtls.extract_method(true)
-        end, { desc = 'Extract Method' })
+        vim.keymap.set('v', 'crc', function() jdtls.extract_constant(true) end, { desc = 'Extract Constant (visual)' })
+        vim.keymap.set('v', 'crm', function() jdtls.extract_method(true) end, { desc = 'Extract Method' })
       end,
     })
   end,
