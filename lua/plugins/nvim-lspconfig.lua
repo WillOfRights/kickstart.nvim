@@ -102,6 +102,7 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
+      'google-java-format',
       'html-lsp',
       'markdown-oxide',
       -- clangd snapshot build to fix CUDA issue
