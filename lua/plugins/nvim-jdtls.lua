@@ -52,11 +52,7 @@ return {
             java = {},
           },
 
-          -- Language server `initializationOptions`
-          -- You need to extend the `bundles` with paths to jar files
-          -- if you want to use additional eclipse.jdt.ls plugins.
-          --
-          -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
+          -- https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
           init_options = {
             bundles = { vim.fn.glob('~/CodingUtilLocal/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.2.jar', 1) },
           },

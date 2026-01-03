@@ -8,8 +8,10 @@ return {
       build = 'make',
       cond = function() return vim.fn.executable 'make' == 1 end,
     },
+    'nvim-telescope/telescope-dap.nvim',
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    'mfussenegger/nvim-dap',
     'rcarriga/nvim-notify',
   },
   config = function()
@@ -47,6 +49,7 @@ return {
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'dap')
 
     -- Keymaps
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
@@ -88,6 +91,13 @@ return {
 
     -- Notify extension (with nvim-notify.lua)
     vim.keymap.set('n', '<leader>fn', function() require('telescope').extensions.notify.notify() end, { desc = '[F]ind [N]otification history' })
+
+    -- Debug keymaps
+    local dap = require('telescope').extensions.dap
+    vim.keymap.set('n', '<leader>dc', dap.commands, { desc = '[D]ebug [C]ommands' })
+    vim.keymap.set('n', '<leader>db', dap.list_breakpoints, { desc = '[D]ebug [B]reakpoints' })
+    vim.keymap.set('n', '<leader>dv', dap.variables, { desc = '[D]ebug [V]ariables' })
+    vim.keymap.set('n', '<leader>df', dap.frames, { desc = '[D]ebug [F]rames' })
 
     -- Override lsp navigation
     vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = '[G]oto [D]efinition' })

@@ -105,6 +105,7 @@ return {
       'google-java-format',
       'html-lsp',
       'markdown-oxide',
+      'eslint_d',
       -- clangd snapshot build to fix CUDA issue
       { 'clangd', version = 'snapshot_20251109' },
     })
