@@ -11,7 +11,8 @@ return {
       callback = function()
         local jdtls = require 'jdtls'
 
-        local jdtls_path = '/home/will/.local/share/jdtls'
+        local home_dir = vim.env.HOME
+        local jdtls_path = home_dir .. '/.local/share/jdtls'
         local jar_arg = jdtls_path .. '/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar'
         local config_arg = jdtls_path .. '/config_linux'
 
@@ -54,7 +55,9 @@ return {
 
           -- https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
           init_options = {
-            bundles = { vim.fn.glob('~/CodingUtilLocal/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.2.jar', 1) },
+            bundles = {
+              vim.fn.glob(home_dir .. '/.local/share/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.2.jar', 1),
+            },
           },
         }
 
