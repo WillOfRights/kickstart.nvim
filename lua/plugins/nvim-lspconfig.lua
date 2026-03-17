@@ -106,6 +106,7 @@ return {
       'html-lsp',
       'markdown-oxide',
       'eslint-lsp',
+      'ltex-ls-plus',
       -- clangd snapshot build to fix CUDA issue
       { 'clangd', version = 'snapshot_20251109' },
     })
