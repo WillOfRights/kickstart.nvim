@@ -13,7 +13,7 @@ return {
 
         local home_dir = vim.env.HOME
         local jdtls_path = home_dir .. '/.local/share/jdtls'
-        local jar_arg = jdtls_path .. '/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar'
+        local jar_arg = jdtls_path .. '/plugins/org.eclipse.equinox.launcher_1.7.100.v20251111-0406.jar'
         local config_arg = jdtls_path .. '/config_linux'
 
         local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
